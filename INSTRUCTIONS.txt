@@ -1,0 +1,24 @@
+INSTRUCTIONS ON HOW TO INSTALL SYLLASHARE
+
+For best functionality, make sure the syllashare files are located in localhost:8888/syllasharefinal/
+
+Every time you pull, check the logs to see if the database.sql file was changed. If it was,
+see if any changes were made to the file.  If there were, copy and paste the contents of the file into 
+phpmyadmin SQL area.  
+
+MySQL connection creds:
+
+Hostname: localhost
+Username: root
+Password: Nsr10ojif??
+DatabaseName: syllasharenew
+
+Make sure that is all created if you are getting an error.
+
+ERROR DEBUGGING:
+Make sure your syllashare files are located in http://localhost:8888/syllasharefinal
+
+Make sure your database syllashare new is created
+
+Make sure your MySQL connection matches mine.
+

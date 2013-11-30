@@ -3,18 +3,12 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 30, 2013 at 12:16 PM
+-- Generation Time: Nov 30, 2013 at 01:21 PM
 -- Server version: 5.5.25
 -- PHP Version: 5.4.4
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
 
 --
 -- Database: `syllasharenew`
@@ -112,6 +106,33 @@ INSERT INTO `classes` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `posts`
+--
+
+CREATE TABLE `posts` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `poster` int(11) NOT NULL,
+  `pageid` int(11) NOT NULL,
+  `content` varchar(600) DEFAULT NULL,
+  `timeposted` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+
+--
+-- Dumping data for table `posts`
+--
+
+INSERT INTO `posts` (`id`, `poster`, `pageid`, `content`, `timeposted`) VALUES
+(1, 2, 1, 'hey', '2013-11-30 12:53:30'),
+(2, 2, 1, 'fdsa', '2013-11-30 13:06:08'),
+(3, 2, 1, 'asdf', '2013-11-30 13:06:36'),
+(4, 2, 1, 'fdsa', '2013-11-30 13:06:46'),
+(5, 2, 1, 'asdfdsa', '2013-11-30 13:07:12'),
+(6, 2, 1, 'asdfdsa', '2013-11-30 13:07:14');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -133,7 +154,3 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password`, `activated`, `code`, `grade`) VALUES
 (2, 'Elliot', 'Anderson', 'anderson.elliot3@gmail.com', 'f57feec6a5efe1485742caee367967a7', 1, 67652201, 9);
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

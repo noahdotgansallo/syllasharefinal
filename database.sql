@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 30, 2013 at 01:21 PM
+-- Generation Time: Nov 30, 2013 at 06:59 PM
 -- Server version: 5.5.25
 -- PHP Version: 5.4.4
 
@@ -106,6 +106,65 @@ INSERT INTO `classes` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `forumcomment`
+--
+
+CREATE TABLE `forumcomment` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userid` int(11) NOT NULL,
+  `postid` int(11) NOT NULL,
+  `content` varchar(500) NOT NULL,
+  `timecomment` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+
+--
+-- Dumping data for table `forumcomment`
+--
+
+INSERT INTO `forumcomment` (`id`, `userid`, `postid`, `content`, `timecomment`) VALUES
+(1, 2, 2, 'idrk nigga', '2013-11-30 18:40:19'),
+(2, 2, 2, 'sucks to suck', '2013-11-30 18:40:47'),
+(3, 2, 2, 'yeah your life sucks', '2013-11-30 18:41:14'),
+(4, 2, 2, 'you should probably pay attention in class', '2013-11-30 18:41:22'),
+(5, 2, 2, 'http://www.dailywritingtips.com/compliment-vs-complement/', '2013-11-30 18:41:40'),
+(6, 2, 8, 'be more specific', '2013-11-30 18:47:21');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `forumposts`
+--
+
+CREATE TABLE `forumposts` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `poster` int(11) NOT NULL,
+  `classid` int(11) NOT NULL,
+  `question` varchar(200) NOT NULL,
+  `content` varchar(5000) NOT NULL,
+  `timeposted` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+
+--
+-- Dumping data for table `forumposts`
+--
+
+INSERT INTO `forumposts` (`id`, `poster`, `classid`, `question`, `content`, `timeposted`) VALUES
+(1, 2, 12, 'I need help with the webassign', 'I forgot how to do the gravity problem.', '2013-11-30 17:28:14'),
+(2, 2, 12, 'Compliment Vs Complement', 'I know the two definitions of the words, I just forget which one is which. Somebody please help.', '2013-11-30 18:20:46'),
+(3, 2, 12, 'fhaha', 'hfdsjal', '2013-11-30 18:45:15'),
+(4, 2, 12, 'fhaha', 'hfdsjal', '2013-11-30 18:45:22'),
+(5, 2, 12, 'You suck', 'you suck', '2013-11-30 18:45:33'),
+(6, 2, 12, 'fdsafdsa', 'asdfdsa', '2013-11-30 18:46:27'),
+(7, 2, 12, 'fdsafdsa', 'asdfdsa', '2013-11-30 18:46:31'),
+(8, 2, 12, 'asfkds', 'asdfa', '2013-11-30 18:47:13'),
+(9, 2, 12, 'cmon man', 'cmon man', '2013-11-30 18:48:01'),
+(10, 2, 8, 'What does Hola mean?', 'it makes no sense', '2013-11-30 18:50:37');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `posts`
 --
 
@@ -116,7 +175,7 @@ CREATE TABLE `posts` (
   `content` varchar(600) DEFAULT NULL,
   `timeposted` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `posts`
@@ -128,7 +187,10 @@ INSERT INTO `posts` (`id`, `poster`, `pageid`, `content`, `timeposted`) VALUES
 (3, 2, 1, 'asdf', '2013-11-30 13:06:36'),
 (4, 2, 1, 'fdsa', '2013-11-30 13:06:46'),
 (5, 2, 1, 'asdfdsa', '2013-11-30 13:07:12'),
-(6, 2, 1, 'asdfdsa', '2013-11-30 13:07:14');
+(6, 2, 1, 'asdfdsa', '2013-11-30 13:07:14'),
+(7, 2, 12, 'yo chaunz homework be page 101-123', '2013-11-30 16:59:11'),
+(8, 2, 12, 'oh word', '2013-11-30 16:59:17'),
+(9, 2, 22, 'The homework is on the syllabus', '2013-11-30 18:19:02');
 
 -- --------------------------------------------------------
 
@@ -146,11 +208,12 @@ CREATE TABLE `users` (
   `code` int(8) NOT NULL,
   `grade` int(2) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password`, `activated`, `code`, `grade`) VALUES
-(2, 'Elliot', 'Anderson', 'anderson.elliot3@gmail.com', 'f57feec6a5efe1485742caee367967a7', 1, 67652201, 9);
+(2, 'Elliot', 'Anderson', 'anderson.elliot3@gmail.com', 'f57feec6a5efe1485742caee367967a7', 1, 67652201, 9),
+(3, 'Adam', 'Anderson', 'syllashare@gmail.com', 'f57feec6a5efe1485742caee367967a7', 1, 63983803, 10);

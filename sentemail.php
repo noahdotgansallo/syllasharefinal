@@ -18,7 +18,7 @@ if (isset($_POST['activationcode'])){
 			header('location: addclasses.php');
 			}
 		} else {
-			$errormsg = "Wrong activatoin code.";
+			$errormsg = "Wrong activation code.";
 		}
 
 	} else {

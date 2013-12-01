@@ -13,20 +13,14 @@ while ($row = mysqli_fetch_assoc($getuserrun)){
 	$email = $row['email'];
 }
 include_once('header.php');
-
 ?>
 <div class="span6">
 <p class="lead">
 
 </p>
 </div>
-
 <?php
 include_once('rightbar.php');
-?>
-
-
-<?php
 include_once('footer.php');
 ?>
 </body>

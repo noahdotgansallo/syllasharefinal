@@ -94,14 +94,7 @@ echo $firstname.' '.$lastname;
 	background-color: #f2f2f2;
 }
 </style>
-<!--
-<span class="spanright">Algebra 2/Trig</span><br />
-<span class="spanright">Spanish II</span><br />
-<span class="spanright">Comparative Cultures</span><br />
-<span class="spanright">Physics</span><br />
-<span class="spanright">English</span><br />
-<center>
--->
+
 <?php
 //get classes and print out their names
 

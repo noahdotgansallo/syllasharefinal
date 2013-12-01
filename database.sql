@@ -1,14 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 3.5.1
--- http://www.phpmyadmin.net
---
--- Host: localhost
--- Generation Time: Nov 30, 2013 at 08:03 PM
--- Server version: 5.5.25
--- PHP Version: 5.4.4
-
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
 
 
 DROP TABLE IF EXISTS `class`;
@@ -19,6 +8,22 @@ DROP TABLE IF EXISTS `forumposts`;
 DROP TABLE IF EXISTS `posts`;
 DROP TABLE IF EXISTS `up`;
 DROP TABLE IF EXISTS `users`;
+DROP TABLE IF EXISTS `clubs`;
+DROP TABLE IF EXISTS `userinterest`;
+DROP TABLE IF EXISTS `userclubs`;
+DROP TABLE IF EXISTS `interests`;
+-- phpMyAdmin SQL Dump
+-- version 3.5.1
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Nov 30, 2013 at 10:00 PM
+-- Server version: 5.5.25
+-- PHP Version: 5.4.4
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
 --
 -- Database: `syllasharenew`
 --
@@ -115,6 +120,18 @@ INSERT INTO `classes` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `clubs`
+--
+
+CREATE TABLE `clubs` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `down`
 --
 
@@ -123,7 +140,15 @@ CREATE TABLE `down` (
   `userid` int(11) NOT NULL,
   `postid` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `down`
+--
+
+INSERT INTO `down` (`id`, `userid`, `postid`) VALUES
+(3, 2, 8),
+(4, 2, 7);
 
 -- --------------------------------------------------------
 
@@ -138,7 +163,7 @@ CREATE TABLE `forumcomment` (
   `content` varchar(500) NOT NULL,
   `timecomment` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `forumcomment`
@@ -151,7 +176,10 @@ INSERT INTO `forumcomment` (`id`, `userid`, `postid`, `content`, `timecomment`) 
 (4, 2, 2, 'you should probably pay attention in class', '2013-11-30 18:41:22'),
 (5, 2, 2, 'http://www.dailywritingtips.com/compliment-vs-complement/', '2013-11-30 18:41:40'),
 (6, 2, 8, 'be more specific', '2013-11-30 18:47:21'),
-(7, 2, 1, 'asdf', '2013-11-30 19:37:13');
+(7, 2, 1, 'asdf', '2013-11-30 19:37:13'),
+(8, 2, 1, 'your pretty stupid', '2013-11-30 20:06:59'),
+(9, 2, 1, 'Gravity is 9.8m/s^2', '2013-11-30 20:08:16'),
+(10, 2, 10, 'asdf', '2013-11-30 21:54:33');
 
 -- --------------------------------------------------------
 
@@ -184,6 +212,18 @@ INSERT INTO `forumposts` (`id`, `poster`, `classid`, `question`, `content`, `tim
 (8, 2, 12, 'asfkds', 'asdfa', '2013-11-30 18:47:13'),
 (9, 2, 12, 'cmon man', 'cmon man', '2013-11-30 18:48:01'),
 (10, 2, 8, 'What does Hola mean?', 'it makes no sense', '2013-11-30 18:50:37');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `interests`
+--
+
+CREATE TABLE `interests` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -226,14 +266,41 @@ CREATE TABLE `up` (
   `userid` int(11) NOT NULL,
   `postid` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `up`
 --
 
 INSERT INTO `up` (`id`, `userid`, `postid`) VALUES
-(8, 2, 7);
+(9, 2, 9),
+(10, 2, 10);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `userclubs`
+--
+
+CREATE TABLE `userclubs` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userid` int(11) NOT NULL,
+  `clubid` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `userinterest`
+--
+
+CREATE TABLE `userinterest` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userid` int(11) NOT NULL,
+  `interestid` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 

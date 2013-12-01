@@ -66,7 +66,7 @@ if (isset($_SESSION['id'])){
 	?>
 <br /><br />
 <div class="row-fluid" style="height: 100%;">
-<div class="span3" style="padding-left: 20px; padding-right: 2px; border-right: 1px solid #f2f2f2;">
+<div class="span3" style="padding-left: 20px; padding-right: 2px; border-right: 1px solid #d9d9d9;">
 <div class="innercontent" >
 <br />
 <p class="lead">

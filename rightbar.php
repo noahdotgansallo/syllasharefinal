@@ -1,4 +1,4 @@
-<div class="span3" style="height: 100%; border-left: 1px solid #f2f2f2;">
+<div class="span3" style="height: 100%; border-left: 1px solid #d9d9d9;">
 <br />
 <center>
 <b>Assignments</b>

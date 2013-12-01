@@ -75,12 +75,12 @@ while ($row = mysqli_fetch_assoc($runcomments)){
 	
 	echo $ccontent.'<form action="up.php?id='.$cid.'" method="POST">
 	 <input type="hidden" name="pageid" value="'.$questionid.'" />
-	 <input type="submit" value="Up" class="btn btn-warning" />
+	 <input type="submit" value="Up" class="btn btn-success" />
 	 </form>
 	 <form action="down.php?id='.$cid.'" method="POST">
 	<input type="hidden" name="pageid" value="'.$questionid.'" />
 
-	 <input type="submit" value="Down" class="btn btn-warning" />
+	 <input type="submit" value="Down" class="btn btn-danger" />
 	 </form> <small>'.$cposter.' at '.$ctime.'</small> Total: '.$total.'<br />';
 	
 }	

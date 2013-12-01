@@ -45,7 +45,7 @@ include_once('header.php');
 
 ?>
 
-<div id="span6">
+<div class="span6">
 <?php
 
 // now we want to get the messages from this chat

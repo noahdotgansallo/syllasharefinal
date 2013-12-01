@@ -60,7 +60,10 @@ while ($row = mysqli_fetch_assoc($runforums)){
 		$lastname = $row2['lastname'];
 		$questionname = $firstname.' '.$lastname;
 	}
-	echo '<b><a href="question.php?id='.$postid.'">'.$question.'</a></b> Posted by '.$questionname.' at '.$timeposted;
+	echo '<b><a href="question.php?id='.$postid.'">'.$question.'</a></b>
+
+	Posted by '.$questionname.' 
+	at '.$timeposted.'<br />';
 	
 }	
 

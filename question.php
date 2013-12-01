@@ -69,7 +69,19 @@ while ($row = mysqli_fetch_assoc($runcomments)){
 		$clname = $row2['lastname'];
 		$cposter = $cfname.' '.$clname;		
 	}
-	echo $ccontent.' <small>'.$cposter.' at '.$ctime.'</small><br />';
+	$ups = mysqli_query($connect, "SELECT * FROM up WHERE postid=$cid");
+	$downs = mysqli_query($connect, "SELECT * FROM down WHERE postid=$cid");
+	$total = mysqli_num_rows($ups) - mysqli_num_rows($downs);
+	
+	echo $ccontent.'<form action="up.php?id='.$cid.'" method="POST">
+	 <input type="hidden" name="pageid" value="'.$questionid.'" />
+	 <input type="submit" value="Up" class="btn btn-warning" />
+	 </form>
+	 <form action="down.php?id='.$cid.'" method="POST">
+	<input type="hidden" name="pageid" value="'.$questionid.'" />
+
+	 <input type="submit" value="Down" class="btn btn-warning" />
+	 </form> <small>'.$cposter.' at '.$ctime.'</small> Total: '.$total.'<br />';
 	
 }	
 ?>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 30, 2013 at 06:59 PM
+-- Generation Time: Nov 30, 2013 at 08:03 PM
 -- Server version: 5.5.25
 -- PHP Version: 5.4.4
 
@@ -13,8 +13,12 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `class`;
 DROP TABLE IF EXISTS `classes`;
-DROP TABLe IF EXISTS `posts`;
-DROP TABLE  IF EXISTS `users`;
+DROP TABLE IF EXISTS `down`;
+DROP TABLE IF EXISTS `forumcomment`;
+DROP TABLE IF EXISTS `forumposts`;
+DROP TABLE IF EXISTS `posts`;
+DROP TABLE IF EXISTS `up`;
+DROP TABLE IF EXISTS `users`;
 --
 -- Database: `syllasharenew`
 --
@@ -111,6 +115,19 @@ INSERT INTO `classes` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `down`
+--
+
+CREATE TABLE `down` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userid` int(11) NOT NULL,
+  `postid` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `forumcomment`
 --
 
@@ -121,7 +138,7 @@ CREATE TABLE `forumcomment` (
   `content` varchar(500) NOT NULL,
   `timecomment` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `forumcomment`
@@ -133,7 +150,8 @@ INSERT INTO `forumcomment` (`id`, `userid`, `postid`, `content`, `timecomment`) 
 (3, 2, 2, 'yeah your life sucks', '2013-11-30 18:41:14'),
 (4, 2, 2, 'you should probably pay attention in class', '2013-11-30 18:41:22'),
 (5, 2, 2, 'http://www.dailywritingtips.com/compliment-vs-complement/', '2013-11-30 18:41:40'),
-(6, 2, 8, 'be more specific', '2013-11-30 18:47:21');
+(6, 2, 8, 'be more specific', '2013-11-30 18:47:21'),
+(7, 2, 1, 'asdf', '2013-11-30 19:37:13');
 
 -- --------------------------------------------------------
 
@@ -196,6 +214,26 @@ INSERT INTO `posts` (`id`, `poster`, `pageid`, `content`, `timeposted`) VALUES
 (7, 2, 12, 'yo chaunz homework be page 101-123', '2013-11-30 16:59:11'),
 (8, 2, 12, 'oh word', '2013-11-30 16:59:17'),
 (9, 2, 22, 'The homework is on the syllabus', '2013-11-30 18:19:02');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `up`
+--
+
+CREATE TABLE `up` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userid` int(11) NOT NULL,
+  `postid` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+
+--
+-- Dumping data for table `up`
+--
+
+INSERT INTO `up` (`id`, `userid`, `postid`) VALUES
+(8, 2, 7);
 
 -- --------------------------------------------------------
 

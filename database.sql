@@ -10,6 +10,11 @@
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
+
+DROP TABLE IF EXISTS `class`;
+DROP TABLE IF EXISTS `classes`;
+DROP TABLe IF EXISTS `posts`;
+DROP TABLE  IF EXISTS `users`;
 --
 -- Database: `syllasharenew`
 --

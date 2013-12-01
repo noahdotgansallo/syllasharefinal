@@ -39,7 +39,7 @@ if (isset($_POST['clubs'])){
 			$create = "INSERT INTO interests VALUES('', '$interests')";
 			$creater = mysqli_query($connect, $create);
 			// now we want to get the thing we just inserted
-			$get = "SELECT id FROM userinterest WHERE name='$interests'";
+			$get = "SELECT id FROM interests WHERE name='$interests'";
 			$rget = mysqli_query($connect, $get);
 			while ($row = mysqli_fetch_assoc($rget)){
 				$interestid = $row['id'];
@@ -62,7 +62,7 @@ if (isset($_POST['clubs'])){
 			$createc = "INSERT INTO clubs VALUES('', '$clubs')";
 			$createcr = mysqli_query($connect, $createc);
 			//get the thing we just inserted as we did before
-			$getc = "SELECT id FROM userclubs WHERE name='$clubs'";
+			$getc = "SELECT id FROM clubs WHERE name='$clubs'";
 			$rgetc = mysqli_query($connect, $getc);
 			while ($row = mysqli_fetch_assoc($rgetc)){
 				$clubid = $row['id'];

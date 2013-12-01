@@ -113,19 +113,49 @@ while ($row = mysqli_fetch_assoc($runclasses)){
 
 
 ?>
+<center>
 <b>Clubs</b><br />
 </center>
-<span class="spanright">Model UN</span><br />
+<!--<span class="spanright">Model UN</span><br />
 <span class="spanright">Mock Trial</span><br />
 <span class="spanright">XKCD</span><br />
+-->
+<?php
+
+$getclubs = "SELECT clubid FROM userclubs WHERE userid=$userid";
+$getclubsr = mysqli_query($connect, $getclubs);
+while ($row = mysqli_fetch_assoc($getclubsr)){ 
+	$clubid = $row['clubid'];
+	// get the name of the club
+	$getclubinfo = "SELECT * FROM clubs WHERE id=$clubid";
+	$getclubinfor = mysqli_query($connect, $getclubinfo);
+	while ($row2 = mysqli_fetch_assoc($getclubinfor)){
+		$clubname = $row2['name'];
+	}
+	echo '<span class="spanright"><a href="clubs.php?id='.$clubid.'">'.$clubname.'</a></span><br />';
+}
+
+?>
 <br />
 <center>
 <b>Interests</b><br />
-<span class="spanright">Programming</span><br />
-<span class="spanright">Basketball</span><br />
-<span class="spanright">Guitar</span><br />
-<span class="spanright">Drums</span><br />
 </center>
+
+<?php
+$getinterests = "SELECT interestid FROM userinterest WHERE userid=$userid";
+$getinterestsr = mysqli_query($connect, $getinterests);
+while ($row = mysqli_fetch_assoc($getinterestsr)){
+	$interestid = $row['interestid'];
+	$getinterestname = "SELECT name FROM interests WHERE id=$interestid";
+	$getinterestnamer = mysqli_query($connect, $getinterestname);
+	while ($row2 = mysqli_fetch_assoc($getinterestnamer)){
+		$interestname = $row2['name'];
+	}
+	echo '<span class="spanright"><a href="interest.php?id='.$interestid.'">'.$interestname.'</a></span><br />';
+}
+
+
+?>
 </p>
 </div>
 </div>

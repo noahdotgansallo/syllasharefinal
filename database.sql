@@ -12,12 +12,15 @@ DROP TABLE IF EXISTS `clubs`;
 DROP TABLE IF EXISTS `userinterest`;
 DROP TABLE IF EXISTS `userclubs`;
 DROP TABLE IF EXISTS `interests`;
+DROP TABLE IF EXISTS `chats`;
+DROP TABLE IF EXISTS `messages`;
+
 -- phpMyAdmin SQL Dump
 -- version 3.5.1
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 30, 2013 at 10:00 PM
+-- Generation Time: Nov 30, 2013 at 11:27 PM
 -- Server version: 5.5.25
 -- PHP Version: 5.4.4
 
@@ -27,6 +30,19 @@ SET time_zone = "+00:00";
 --
 -- Database: `syllasharenew`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `chats`
+--
+
+CREATE TABLE `chats` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user1` int(11) NOT NULL,
+  `user2` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -228,6 +244,22 @@ CREATE TABLE `interests` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `messages`
+--
+
+CREATE TABLE `messages` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `chatid` int(11) NOT NULL,
+  `content` varchar(500) NOT NULL,
+  `sentid` int(11) NOT NULL,
+  `seen` int(11) NOT NULL DEFAULT '0',
+  `timesent` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `posts`
 --
 
@@ -324,6 +356,3 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password`, `activated`, `code`, `grade`) VALUES
-(2, 'Elliot', 'Anderson', 'anderson.elliot3@gmail.com', 'f57feec6a5efe1485742caee367967a7', 1, 67652201, 9),
-(3, 'Adam', 'Anderson', 'syllashare@gmail.com', 'f57feec6a5efe1485742caee367967a7', 1, 63983803, 10);

@@ -46,6 +46,7 @@ Do experience day.
 <?php
 //for right now, we are just going to pull from all the users 
 $getchat = "SELECT id,firstname,lastname FROM users WHERE id!=$userid";
+var_dump($getchat);
 $getchatr = mysqli_query($connect, $getchat);
 while ($row = mysqli_fetch_assoc($getchatr)){
 	$friendid = $row['id'];

@@ -7,7 +7,14 @@ if (!isset($_SESSION['id'])){
 }
 $user1 = $_SESSION['id'];
 $user2 = $_GET['id'];
-
+$userid = $_SESSION['id'];
+$getuserinfo = "SELECT * FROM users WHERE id=$userid";
+$getuserrun = mysqli_query($connect, $getuserinfo);
+while ($row = mysqli_fetch_assoc($getuserrun)){
+	$firstname = $row['firstname'];
+	$lastname = $row['lastname'];
+	$email = $row['email'];
+}
 
 
 // now we want to check if the chat exists

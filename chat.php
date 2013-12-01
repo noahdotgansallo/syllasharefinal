@@ -51,8 +51,8 @@ if (isset($_POST['chatcontent'])){
 include_once('header.php');
 
 ?>
-
 <div class="span6">
+<br /><br />
 <?php
 
 // now we want to get the messages from this chat

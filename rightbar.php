@@ -38,10 +38,23 @@ Do experience day.
 <center>
 <b>Online: </b>
 </center>
-<p>James Pickering</p>
+<!--<p>James Pickering</p>
 <p>Max Mines</p>
 <p>Noah Gansallo</p>
 <p>Sam Slavitt</p>
-<p>Benny Hams</p>
+<p>Benny Hams</p>-->
+<?php
+//for right now, we are just going to pull from all the users 
+$getchat = "SELECT id,firstname,lastname FROM users WHERE id!=$userid";
+$getchatr = mysqli_query($connect, $getchat);
+while ($row = mysqli_fetch_assoc($getchatr)){
+	$friendid = $row['id'];
+	$friendfname = $row['fname'];
+	$friendlname = $row['lname'];
+	echo '<p><a href="chat.php?id='.$friendid.'">'.$friendfname.' '.$friendlname.'</a></p>';
+	
+}
+
+?>
 </div>
 </div>

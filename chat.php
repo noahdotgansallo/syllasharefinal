@@ -74,7 +74,7 @@ while ($row = mysqli_fetch_assoc($getmessagesr)){
 }
 
 echo '<form action="chat.php?id='.$user2.'" method="POST">
-<textarea name="chatcontent" placeholder="Chat.." class="form-control" />
+<textarea name="chatcontent" placeholder="Chat.." class="form-control"></textarea>
 <input type="submit" value="Send" class="btn btn-primary" />
 </form>';
 

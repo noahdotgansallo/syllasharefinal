@@ -8,8 +8,9 @@ if (!isset($_SESSION['id'])){
 }
 if (isset($_POST['title'])){
 	if (!empty($_POST['title']) && !empty($_POST['description'])){
-		$title = $_POST['title'];
-		$description = $_POST['description'];
+		$title = mysqli_real_escape_string($connect, $_POST['title']);
+		
+		$description = mysqli_real_escape_string($connect, $_POST['description']);
 		$addquestion = "INSERT INTO forumposts VALUES('', $userid, $pageclassid, '$title', '$description', NOW())";
 		$addquestionr = mysqli_query($connect, $addquestion);
 		//now we want to get the id of the question we just asked.

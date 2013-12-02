@@ -40,18 +40,19 @@ if (mysqli_num_rows($getchatr) > 0){
 		$chatid = $row['id'];
 	}
 }
-if (isset($_POST['chatcontent'])){
-	$chatcontent = $_POST['chatcontent'];
+/*if (isset($_GET['chatcontent'])){
+	$chatcontent = $_GET['chatcontent'];
 	if (!empty($chatcontent)){
 		$sendchat = "INSERT INTO messages VALUES('', $chatid, '$chatcontent', $user1, '', NOW())";
 		$sendchatr = mysqli_query($connect, $sendchat);
 	}
 }
-
+*/
 include_once('header.php');
 
 ?>
 <div class="span6">
+<div id="chatstuff">
 <br /><br />
 <?php
 
@@ -79,13 +80,10 @@ while ($row = mysqli_fetch_assoc($getmessagesr)){
 		
 	}
 }
-
-echo '<form action="chat.php?id='.$user2.'" method="POST">
-<textarea name="chatcontent" placeholder="Chat.." class="form-control"></textarea>
-<input type="submit" value="Send" class="btn btn-primary" />
-</form>';
-
 ?>
+</div>
+<textarea name="chatcontent" placeholder="Chat.." class="form-control" id="message-content"></textarea>
+<input type="button" value="Send" onClick="sendMessage()" class="btn btn-primary" />
 </div>
 
 <?php
@@ -93,3 +91,27 @@ include_once('rightbar.php');
 include_once('footer.php');
 
 ?>
+<script type="text/javascript">
+function sendMessage(){
+	var str = document.getElementById('message-content').value;
+	var xmlhttp;
+	if (window.XMLHttpRequest) {
+		xmlhttp=new XMLHttpRequest();
+	}
+	else
+		  {// code for IE6, IE5
+		  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		  }
+		xmlhttp.onreadystatechange=function()
+		  {
+		  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+		    {
+		    document.getElementById("chatstuff").innerHTML=document.getElementById("chatstuff").innerHTML + xmlhttp.responseText + '<br>';
+		    document.getElementById('message-content').value = "";
+		    }
+		  }
+		xmlhttp.open("GET","sendchat.php?c="+<?php echo $chatid; ?>+"&m="+str,true);
+		xmlhttp.send();
+
+}
+</script>

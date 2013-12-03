@@ -1,3 +1,5 @@
+testing
+
 <?php
 session_start();
 include_once('database.php');
@@ -92,7 +94,7 @@ include_once('footer.php');
 
 ?>
 <script type="text/javascript">
-alert("ggg") ;
+
 function sendMessage(){
 	var str = document.getElementById('message-content').value;
 	var xmlhttp;
